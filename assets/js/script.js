@@ -11,7 +11,7 @@ function generatePassword() {
 
   //Prompts for password criteria
   var passwordLength = window.prompt("How may characters would you like in your password? Please enter a number between 8 and 128.");
-  
+
   //Keeps password between 8 and 128
   if (passwordLength < 8 || passwordLength > 128) {
     window.alert("Please enter a number between 8 and 128");
@@ -30,30 +30,30 @@ function generatePassword() {
   if (!upperInclude && !lowerInclude && !numericInclude && !specialInclude) {
     window.alert("You must select at least one character type.");
     return;
-  
+
   }
 
   for (var i = 0; i < passwordLength; i++) {
-    
+
     //Functions to get random value from each of the character arrays
     function getRndmUpper() {
       var index = Math.floor(Math.random() * upperCaseLetters.length);
       var upper = upperCaseLetters[index];
       return upper;
     }
-    
+
     function getRndmLower() {
       var index = Math.floor(Math.random() * lowerCaseLetters.length);
       var lower = lowerCaseLetters[index];
       return lower;
     }
-    
+
     function getRndmNum() {
       var index = Math.floor(Math.random() * numericCharacter.length);
       var num = numericCharacter[index];
       return num;
     }
-    
+
     function getRndmSpcl() {
       var index = Math.floor(Math.random() * specialCharacters.length);
       var special = specialCharacters[index];
@@ -64,19 +64,19 @@ function generatePassword() {
     if (upperInclude) {
       functionsList.push(getRndmUpper());
     }
-  
+
     if (lowerInclude) {
       functionsList.push(getRndmLower());
     }
-  
+
     if (specialInclude) {
       functionsList.push(getRndmSpcl());
     }
-  
+
     if (numericInclude) {
       functionsList.push(getRndmNum());
     }
-  
+
     //Randomly fires the functions that fit user criteria selection to create
     //password that fits criteria
     var funIndex = Math.floor(Math.random() * functionsList.length);
@@ -84,7 +84,7 @@ function generatePassword() {
     pwd = pwd + passwordCharacter;
 
   }
-  
+
   return pwd;
 
 }
